@@ -1,0 +1,56 @@
+﻿"The user wants to extract data from the provided PDF documents and organize it into a CSV format. Each row in the CSV should represent an item from the ""BIÊN BẢN GIAO NHẬN THIẾT BỊ"" tables."
+""
+Here's the plan to extract the data and format it:
+""
+"1. **Identify the relevant tables:** Look for tables with columns like ""STT"""," ""Tên Thiết Bị"""," ""ĐVT"""," ""Số lượng"""," and ""SN"" or ""Ghi chú""."
+2. **Extract information for each item:** For each row in the table, extract the following:
+    - Tên Thiết Bị
+    - Model (if present)
+    - Hãng (if present)
+    - Nước sản xuất (if present)
+    - Đơn vị tính
+    - Số lượng
+    - Chú thích/S/N/Số seri
+    - Số hợp đồng/Số đề xuất
+"3. **Handle variations in table structure:**  Note that some tables might have ""SN"" while others have ""Ghi chú"" or ""Số seri"". The ""Hãng"" and ""Nước sản xuất"" information might be within the ""Tên Thiết Bị"" column and needs to be parsed."
+"4. **Extract contract/proposal numbers:** Look for the ""Theo hợp đồng số"" or similar phrases at the top of the ""NỘI DUNG"" section."
+5. **Format the output as CSV:**  Create a CSV string with the header row and then the data rows.
+```csv
+Tên Thiết Bị,Model,Hãng,Nước sản xuất,Đơn vị tính,Số lượng,S/N,Số hợp đồng/Số đề xuất
+Máy cạo vôi răng siêu âm có đèn led PYON 2,PB-200,W&H,Áo,Cái,02,04156,25624/WH1/P
+Kèm mũi 1U, 3U, 1P,,,Cái,02,04161,25624/WH1/P
+Máy tra dầu bảo dưỡng tay khoan tự động,Assistina 301 plus,W&H,Áo,Cái,01,118738,25624/WH1/P
+Kèm 1 chai dầu và nước vệ sinh máy,,,Cái,01,,25624/WH1/P
+Tay khoan siêu tốc chuck bấm Alegra,TE-95 RM,W&H,Áo,Cái,01,76246,25624/WH1/P
+Bộ tay khoan tốc độ chậm,,,W&H,Áo,Bộ,02,49605-9149056484,25624/WH1/P
+Bộ tay khoan tốc độ chậm,,,W&H,Áo,Bộ,02,49606-9149156485,25624/WH1/P
+Gồm model: WE-56T; HE-43T; AM-20RM),,,,,,25624/WH1/P
+Tay khoan siêu tốc đầu nhỏ Synea FUSION turbine,TG-97 L,W&H,Áo,Cái,04,043494,25624/WH1/P
+Tay khoan siêu tốc đầu nhỏ Synea FUSION turbine,TG-97 L,W&H,Áo,Cái,04,043495,25624/WH1/P
+Tay khoan siêu tốc đầu nhỏ Synea FUSION turbine,TG-97 L,W&H,Áo,Cái,04,043496,25624/WH1/P
+Tay khoan siêu tốc đầu nhỏ Synea FUSION turbine,TG-97 L,W&H,Áo,Cái,04,043497,25624/WH1/P
+Khớp nối nhanh sử dụng với tay đèn TE98LQ/TE97LQ,RQ-54,W&H,Áo,Cái,04,23757,25624/WH1/P
+Khớp nối nhanh sử dụng với tay đèn TE98LQ/TE97LQ,RQ-54,W&H,Áo,Cái,04,23758,25624/WH1/P
+Khớp nối nhanh sử dụng với tay đèn TE98LQ/TE97LQ,RQ-54,W&H,Áo,Cái,04,23569,25624/WH1/P
+Khớp nối nhanh sử dụng với tay đèn TE98LQ/TE97LQ,RQ-54,W&H,Áo,Cái,04,23570,25624/WH1/P
+Mũi cạo vôi trên nướu,,,W&H,Áo,Cái,10,,25624/WH1/P
+Kèm dụng cụ tháo mũi,,,W&H,Áo,Cái,10,,25624/WH1/P
+REF: 1U,,,,,Cái,10,,25624/WH1/P
+Tay khoan tốc độ chậm dạng thẳng, chuck xoay,HE-43T,W&H,Áo,Cái,03,51824,25624/WH1/P
+Tay khoan tốc độ chậm dạng thẳng, chuck xoay,HE-43T,W&H,Áo,Cái,03,54970,25624/WH1/P
+Tay khoan tốc độ chậm dạng thẳng, chuck xoay,HE-43T,W&H,Áo,Cái,03,54971,25624/WH1/P
+MÁY KHOAN XƯƠNG NHA KHOA,Piezotome Cube,Satelec,Pháp,Cái,01,218920005,56-NK/HĐMB/2024
+Phụ kiện bao gồm:,,,Cái,01,218861034,56-NK/HĐMB/2024
+Tay cầm phẫu thuật: 01 cái,,,,,,,56-NK/HĐMB/2024
+Giá đỡ tay cầm: 01 cái (SN: 218861034),,,,,,56-NK/HĐMB/2024
+Pedal điều khiển: 01 cái,,,,,,,56-NK/HĐMB/2024
+Cây gắn bình nước: 01 cái,,,,,,,56-NK/HĐMB/2024
+Dây nước: 02 cái,,,,,,,56-NK/HĐMB/2024
+Khóa mở mũi: 01 cái,,,,,,,56-NK/HĐMB/2024
+Bộ mũi phẫu thuật (06 cái): 01 bộ,,,,,,,56-NK/HĐMB/2024
+Máy ghế nha khoa,Grasia Z3 (HL-2090),Hallim,,Bộ,02,A-10ND0651,053/05-24/HĐMB
+Máy ghế nha khoa,Grasia Z3 (HL-2090),Hallim,,Bộ,02,A-10ND0652,053/05-24/HĐMB
+Máy xông 1 cần,MNH303,,Trung Quốc,Cái,03,Theo đề xuất 24040245,
+Đèn soi da,MNΗ,,Trung Quốc,Cái,04,Theo đề xuất 24040245,
+Nhiệt ẩm kế,TH 600B,,,Cái,16,Theo đề xuất 24060367,
+```
